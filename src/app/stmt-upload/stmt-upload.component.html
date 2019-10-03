@@ -1,0 +1,32 @@
+
+<div class="form-group">
+    <label for="file">Choose File</label>
+    <input type="file"
+           id="file"
+           (change)="handleFileInput($event.target.files)">
+</div>
+
+
+
+
+<button (click)="uploadFileToActivity()">UPLOAD</button>
+
+
+<table *ngIf="failedstmts">
+    <tr>
+        <th>transactionRef</th>
+        <th>accountNum</th>
+        <th>desc</th>
+        <th>startBal</th>
+        <th>endBal</th>
+        <th>mutation</th>
+    </tr>
+    <tr *ngFor="let failedstmt of failedstmts">
+        <td>{{failedstmt.transactionRef}}</td>
+        <td>{{failedstmt.accountNum}}</td>
+        <td>{{failedstmt.desc}}</td>
+        <td>{{failedstmt.startBal}}</td>
+        <td>{{failedstmt.endBal}}</td>
+        <td>{{failedstmt.mutation}}</td>
+    </tr>
+</table>
